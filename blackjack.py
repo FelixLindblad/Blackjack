@@ -12,7 +12,7 @@ def print_intro():
     print("without going over. All face cards count as 10 points,")
     print("aces count as 1 or 11, and all other cards count their numeric value.")
     print("Firstly, your turn:")
-    return None
+    return False
 
 
 def play_multiple_game():
@@ -78,7 +78,7 @@ def is_bust(hand):
     total = sum(hand)
     if total > 21:
         return True
-    return None
+    return False
 
 
 def is_blackjack(hand):
@@ -86,7 +86,7 @@ def is_blackjack(hand):
     total = sum(hand)
     if total == 21:
         return True
-    return None
+    return False
 
 
 def dealer_turn():
@@ -149,14 +149,14 @@ def result_of_this_game(player_hand, dealer_hand):
         player_hand, sum(player_hand)))    
     print("Dealer has: {0} total = {1}".format(
         dealer_hand, sum(dealer_hand)))
-    return None
+    return False
 
 
 def final_result(player_win, dealer_win, game):
     print("\nThe Final after {} games:".format(game))
     print("player: {} | dealer: {}".format(
         player_win, dealer_win))
-    return None
+    return False
 
 
 if __name__ == "__main__": main()
