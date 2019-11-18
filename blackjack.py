@@ -12,7 +12,6 @@ def print_intro():
     print("without going over. All face cards count as 10 points,")
     print("aces count as 1 or 11, and all other cards count their numeric value.")
     print("Firstly, your turn:")
-    return False
 
 
 def play_multiple_game():
@@ -36,7 +35,7 @@ def play_multiple_game():
             print("\nThis game end in a tie!")
             player_win == dealer_win
         game += 1
-        play_again = input("\nDo you want to continue (Y or N)? ")      
+        play_again = input("\nDo you want to continue? [Y or N] ")      
     return player_win, dealer_win, game
 
 
@@ -52,7 +51,7 @@ def player_turn():
         if (is_bust(hand) or
             is_blackjack(hand)):
             break
-        ans = input("Do you want to Hit or Stand (H or S)? ")
+        ans = input("Do you want to Hit or Stand? [H or S] ")
     return hand
 
 
@@ -76,17 +75,13 @@ def eval_ace(hand):
 def is_bust(hand):
     
     total = sum(hand)
-    if total > 21:
-        return True
-    return False
+    return total > 21
 
 
 def is_blackjack(hand):
     
     total = sum(hand)
-    if total == 21:
-        return True
-    return False
+    return total == 21
 
 
 def dealer_turn():
@@ -149,14 +144,12 @@ def result_of_this_game(player_hand, dealer_hand):
         player_hand, sum(player_hand)))    
     print("Dealer has: {0} total = {1}".format(
         dealer_hand, sum(dealer_hand)))
-    return False
 
 
 def final_result(player_win, dealer_win, game):
     print("\nThe Final after {} games:".format(game))
     print("player: {} | dealer: {}".format(
         player_win, dealer_win))
-    return False
 
 
 if __name__ == "__main__": main()
